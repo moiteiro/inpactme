@@ -27,6 +27,7 @@ define(['views/index', 'views/teams', 'views/matchs', 'views/player', 'models/Pl
 			var playerCollection = new PlayerCollection();
 			playerCollection.fetch();
 			//playerCollection.add({name: {first: "bruno", last: "moiteiro"}});
+			//playerCollection.add([{"name":{"first":"Bruno","last":"Moiteiro"}},{"name":{"first":"Teste","last":"TesteFi"}}]);
 			this.changeView(new PlayerView({collection: playerCollection}));
 		},
 

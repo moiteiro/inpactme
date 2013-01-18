@@ -36,6 +36,8 @@ switch($_SERVER['REQUEST_METHOD']){
 		$player = array();
 		$player[] = array('name' => array("first" => "Bruno", "last" => "Moiteiro"));
 		$player[] = array('name' => array("first" => "Teste", "last" => "TesteFi"));
+		$player[] = array('name' => array("first" => "Bruno1", "last" => "Moiteiro1"));
+		$player[] = array('name' => array("first" => "Teste2", "last" => "TesteFi2"));
 
 		$output = json_encode($player);
 		echo $output;

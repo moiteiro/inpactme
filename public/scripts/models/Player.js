@@ -21,11 +21,6 @@ define(function(require) {
 		},
 
 		initialize: function () {
-		},
-
-		parse : function (response) {
-			console.log(response[0]);
-			return response[0];
 		}
 	});
 

@@ -3,6 +3,7 @@ define(function(require) {
 		urlRoot: '/players',
 
 		defaults: {
+			id : "",
 			name: {
 				first : "",
 				last : ""
@@ -17,7 +18,9 @@ define(function(require) {
 				aggression: 0,
 				marking: 0,
 				balance: 0
-			}
+			},
+			overall: "",
+			club: ""
 		},
 
 		initialize: function () {

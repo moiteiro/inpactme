@@ -15,7 +15,7 @@ $local 		= $_SERVER['SERVER_ADDR'] == "127.0.0.1" ? true : false ;
 
 //						-------LOCAL-------	: -------SERVER-------		
 $host		= $local ? "localhost"						: "mysql.brunomoiteiro.com";
-$db			= $local ? "test"							: "projetos_inpactme";
+$db			= $local ? "projetos_inpactme"				: "projetos_inpactme";
 $user		= $local ? "root"							: "inpactme_user";
 $pass		= $local ? ""								: "inpactme_pass";
 $website	= $local ? "http://inpactme"				: "http://sandbox.brunomoiteiro.com";	

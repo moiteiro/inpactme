@@ -1,0 +1,20 @@
+<li class='clearfix'>
+	<div class='player-entry'>
+		<div class='player-description'>
+			<a href="#clubs/<%= id %>">
+				<span><%= name %></span>
+			</a>
+			<div class="clear"></div>
+
+			<div class="progress_wrapper red">
+				<progress max='360' value='<%= overall %>' class='<%= progressColor %>'></progress>
+			</div>
+		</div>
+	</div>
+
+	<span class='action-buttons'>
+		<a href="#clubs/<%= id %>/edit" class='small-button'>
+			Edit
+		</a>
+	</span>
+</li>

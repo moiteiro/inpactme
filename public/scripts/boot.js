@@ -5,16 +5,18 @@ require.config({
         jQuery: 'libs/jquery',
         Underscore: 'libs/underscore',
         Backbone: 'libs/backbone',
+        Chosen: 'libs/chosen',
         text: 'libs/text',
         templates: '../templates',
     },
 
     shim: {
         'Backbone': ['Underscore', 'jQuery'],
+        'Chosen': ['jQuery'],
         'App' : ['Backbone']
     }
 });
 
-define(['App', 'Backbone', 'jQuery', 'Underscore' ], function (App) {
+define(['App', 'Backbone', 'jQuery', 'Underscore', 'Chosen' ], function (App) {
     App.initialize();
 });

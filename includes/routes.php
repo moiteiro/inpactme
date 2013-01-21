@@ -1,14 +1,9 @@
 <?php 
 
 $route_apps = array(
-				"players",
-                "dashboard",
-                "dashboard/users",
-                "session" => array( "remove" => array( "index", "new", "edit", "alter", "show" )),
-                "modules",
-                "modules/portfolios",
-                "modules/portfolios:id/portfolio_images" ,
-                "modules/employees",
+		"clubs",
+		"players",
+                "matches"
                 );
 
 

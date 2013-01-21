@@ -1,0 +1,64 @@
+<div class='sixteen columns glass-box'>
+	<p><a href="#players" class="small-button">Back</a></p>
+
+	<div class='five columns'>
+		<h4><span class='upper'><%= name.last %></span>, <%= name.first %></h4>
+
+		<div class="row"></div>
+
+		<img src="/design/images/avatar_small.png" width='120' alt="">
+
+		<div class="row"></div>
+
+		<ul class='list-info'>
+			<li><strong>Age:</strong> <%= age %></li>
+			<li><strong>Gender:</strong> <%= gender %></li>
+			<li><strong>Field Position:</strong> <%= fieldPosition %></li>
+			<li><strong>Shirt Number:</strong> <%= shirtNumber %></li>
+		</ul>
+	</div>
+
+
+	<div class='four columns'>
+
+		<div class="row"></div>
+		<div class="row"></div>
+
+		<ul class='list-info'>
+			<li>
+				<span>Acceleration</span>
+				<div class="progress_wrapper red">
+					<progress max='10' value='<%= characteristics.acceleration %>' class='<%= accelerationColor %>'></progress>
+				</div>
+			</li>
+
+			<li>
+				<span>Stamina</span>
+				<div class="progress_wrapper red">
+					<progress max='10' value='<%= characteristics.stamina %>' class='<%= staminaColor %>'></progress>
+				</div>
+			</li>
+
+			<li>
+				<span>Aggression</span>
+				<div class="progress_wrapper red">
+					<progress max='10' value='<%= characteristics.aggression %>' class='<%= aggressionColor %>'></progress>
+				</div>
+			</li>
+
+			<li>
+				<span>Marking</span>
+				<div class="progress_wrapper red">
+					<progress max='10' value='<%= characteristics.marking %>' class='<%= markingColor %>'></progress>
+				</div>
+			</li>
+
+			<li>
+				<span>Balance</span>
+				<div class="progress_wrapper red">
+					<progress max='10' value='<%= characteristics.balance %>' class='<%= balanceColor %>'></progress>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

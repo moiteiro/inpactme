@@ -1,0 +1,27 @@
+<div class="sixteen columns glass-box">
+
+	<p><a href="#matches" class='small-button'>Back</a></p>
+
+	<h1><%= host.name %> x <%= guest.name %></h1>
+
+	<form>
+		<input type="hidden" name='id' value='<%= id %>'>
+		
+		<div class='four columns'>
+			<label> Host score </label>
+			<input type="text" name="host_score" value='<%= host.score %>' />
+		</div>		
+			
+		<div class="four columns">
+			<label> Guest score </label>
+			<input type="text" name="guest_score" value='<%= guest.score %>' />
+		</div>
+	
+		<div class="clear"></div>
+		<div class="row"></div>
+
+		<p>
+			<input type="submit" value="Set Result" />
+		</p>
+	</form>
+</div>

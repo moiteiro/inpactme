@@ -1,2 +1,606 @@
 /* CSS Document */
+body {
+	background: url('/design/images/bg.png');
+	height: 100%;
+	width: 100%;
+}
 
+#wrapper {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url('/design/images/soccerField.png') no-repeat scroll;
+}
+
+.glass-box {
+	
+	margin-top: 20px;
+	padding: 20px;
+	background: rgba(250,250,250, .05);
+	-webkit-box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+	-moz-box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+
+	border: 1px solid rgb(255,255,255);
+	border-top: 1px solid rgba(255,255,255,0.2);
+	border-left: 1px solid rgba(155,155,155,0.2);
+	border-right: 1px solid rgba(100,100,100,0.2);
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+
+}
+
+p, td, label {
+	font-size: 14px;
+	font-family: Helvetica Neue, Helvetica, Arial;
+	color:white;
+	text-shadow: 0px -1px 0px rgba(0,0,0,0.5);
+}
+
+h1 {
+	font-family: Helvetica Neue, Helvetica, Arial;
+	font-weight: bold;
+	color:white;
+	text-shadow: 0px -2px 0px rgba(0,0,0,0.5);
+	margin-bottom: 30px;
+	font-size: 30px;
+}
+
+h4, h5 {
+	color: white;
+	text-shadow: 0px -1px 0px rgba(0,0,0,0.5);
+}
+
+img {
+	box-shadow: 2px 2px 2px rgba(0,0,0,.5);
+}
+
+div.divider {
+	width: 100%;
+	height: 1px;
+	border-bottom: 1px solid rgba(255,255,255, 0.1);
+ 	border-top: 1px solid rgba(0, 0, 0, 0.2);
+ 	margin:20px 0;
+}
+
+/*****************************
+	Headers
+*****************************/
+	
+	/*****************************
+		Logo
+	 ****************************/
+
+	 	#logo_wrapper {
+	 		display: block;
+	 		width: 100%;
+	 		height: 70px;
+	 		background: rgba(0,0,0,.5);
+	 	}
+
+	/*****************************
+		Menu
+	 ****************************/
+	 	#menu {
+	 		display: block;
+	 		width: 100%;
+	 		height: 50px;
+	 		background: rgba(0,0,0,.3);
+	 		border-top:1px solid rgba(150, 150, 150, 0.27);
+	 	}
+
+	 	#menu ul {
+	 		display: block;
+	 	}
+
+		nav#menu ul li{
+			margin-top:10px;
+			margin-right: 25px;
+			display: inline;
+			float: left;
+			list-style-type: none;
+		}
+
+
+
+		nav#menu ul li a, nav#menu ul li a:hover , nav#menu ul li a:active {
+			color:#fff;
+			text-decoration: none;
+			display: block;
+			padding: 6px 10px;
+			border: 1px solid transparent;
+			font-size: 16px;
+			font-weight: bold;
+			text-shadow: 0px -1px 0px rgba(0,0,0,.5);
+		}
+
+		nav#menu ul li a:hover, nav#menu ul li a.current {
+			box-shadow: inset 0px 0px 5px rgba(0,0,0,0.4);
+			border: 1px solid rgba(0,0,0,0.25);
+			border-radius: 4px;
+			text-shadow: 0px -1px 0px rgba(0,0,0,0.796), 0px 0px 10px rgba(255, 255, 255, 0.298);
+		}
+
+/*****************************
+	Footer
+*****************************/
+
+	footer#footer {
+        position: relative;
+		display: block;
+ 		width: 100%;
+ 		height: 70px;
+		margin-top: -70px; /* negative value of footer height */
+ 		background: rgba(0,0,0,.5);
+		clear:both;
+	}
+	
+
+	footer div#signature {
+		display: block;
+		float: right;
+		margin-top: 10px;
+		margin-right: 10px;
+	}
+
+/*****************************
+	Lists
+ *****************************/
+
+ 	ul.list-info li, ul.list-info li strong {
+ 		color: #fff;
+ 		font-size: 16px;
+ 	}
+
+ 	ul.list-info li strong {
+ 		font-weight: bold;
+ 	}
+
+
+ 	.first-team-list li, .reserve-team-list li {
+ 		color: #fff;
+ 		padding-top:10px;
+ 		padding-bottom:5px;
+ 	}
+
+
+ 	ul.list {
+ 	}
+
+ 	ul.list li {
+ 		border-top: 1px solid rgba(255,255,255, 0.1);
+ 		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+ 		margin-bottom: 0px;
+ 	}
+
+ 	ul.list li:first-child {
+ 		border-top: none;
+ 	}
+
+ 	ul.list li:last-child {
+ 		border-bottom: none;
+ 	}
+
+ 	ul.list > li a, ul.list > li a:hover, ul.list > li a:visited {
+ 		color: #fff;
+ 		text-decoration: none;
+ 		text-shadow: 0px -1px 0px rgba(0,0,0,.5);
+ 	}
+
+ 	ul.list > li span.description a {
+ 		font-size: 14px;
+ 	}
+
+ 	li span.action-buttons{
+ 		padding-top:15px;
+ 		float: right;
+ 	}
+
+
+ 	.player-entry {
+ 		float: left;
+ 		padding: 5px;
+ 		margin: 5px;
+ 		width: 400px;
+ 	}
+
+ 	.player-image {
+ 		display: block;
+ 		float:left;
+ 	}
+
+ 	.player-description {
+ 		display: block;
+ 		float:left;
+ 		margin-left: 10px;
+ 		margin-top: 5px;
+ 	}
+
+ 	.player-description progress {
+ 		margin-top: 5px;
+ 	}
+
+ 	.player-club {
+ 		float: left;
+ 		display: block;
+ 		width: 200px;
+ 		padding: 5px;
+ 		margin: 5px;
+ 	}
+
+ 	.match-entry {
+ 		width: 500px;
+ 		display: block;
+ 		clear: both;
+ 		margin-bottom: 0px;
+ 		float: left;
+ 		margin: 10px;
+ 		text-shadow: 0px -1px 0px rgba(0,0,0,.5);
+ 	}
+
+ 	.match-entry .club-entry, .match-entry #bigX {
+ 		color:#fff;
+ 		font-size: 16px;
+ 		display: block;
+ 		float: left;
+ 	}
+
+ 	.match-entry .club-entry {
+ 		width: 220px;
+ 	}
+
+ 	.match-entry .club-name.left {
+ 		text-align: right;
+ 		margin-right: 20px;
+ 	}
+
+ 	.match-entry .club-name.right {
+ 		text-align: left;
+ 		margin-left: 20px;
+ 	}
+
+ 	.match-entry #bigX {
+ 		font-size: 30px;
+ 		font-weight: bold;
+ 		margin: 20px 10px 10px 10px ;
+ 	}
+
+ 	.match-entry .score {
+ 		font-size: 50px;
+ 		line-height: 45px;
+ 		font-weight: bold;
+ 		text-shadow: 0px -2px 0px rgba(0,0,0,.5);
+ 	}
+
+ 	.match-entry .score.left {
+ 		text-align: right;
+ 	}
+
+ 	.match-entry .score.right {
+ 		text-align: left;
+ 	}
+
+ 	.match-status {
+ 		color:#fff;
+ 		font-bold;
+ 		text-align: center;
+ 	}
+
+/*****************************
+	Buttons
+ *****************************/
+	a.button, a.small-button, input[type='submit'] {
+		display: inline-block;
+		background: #4162a8;
+		background: #e5e5e5;
+		border-top: 1px solid #ddd;
+		border-right: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		border-left: 1px solid #ccc;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		-ms-border-radius: 4px;
+		-o-border-radius: 4px;
+		border-radius: 4px;
+		-webkit-box-shadow: inset 0 1px 10px 1px #ddd, 0px 1px 0 #ccc, 0 6px 0px #ccc, 0 8px 4px 1px #111111;
+		-moz-box-shadow: inset 0 1px 10px 1px #ddd, 0px 1px 0 #ccc, 0 6px 0px #ccc, 0 8px 4px 1px #111111;
+		-ms-box-shadow: inset 0 1px 10px 1px #ddd, 0px 1px 0 #ccc, 0 6px 0px #ccc, 0 8px 4px 1px #111111;
+		-o-box-shadow: inset 0 1px 10px 1px #ddd, 0px 1px 0 #ccc, 0 6px 0px #ccc, 0 8px 4px 1px #111111;
+		box-shadow: inset 0 1px 10px 1px #fff, 0px 1px 0 #ccc, 0 6px 0px #ccc, 0 8px 4px 1px #111111;
+		color: #333;
+		font: bold 15px "helvetica neue", helvetica, arial, sans-serif;
+		line-height: 1;
+		margin-top: 10px; 
+		margin-bottom: 15px;
+		padding: 8px 0 10px 0;
+		text-align: center;
+		text-shadow: 0px -1px 1px #fff;
+		text-decoration: none;
+		width: 225px;
+		-webkit-background-clip: padding-box;
+	}
+
+
+	a.button:hover {
+		-webkit-box-shadow: inset 0 0px 20px 1px #fff, 0px 1px 0 #ccc, 0 6px 0px #ccc, 0 8px 4px 1px #111111;
+		-moz-box-shadow: inset 0 0px 20px 1px #fff, 0px 1px 0 #ccc, 0 6px 0px #ccc, 0 8px 4px 1px #111111;
+		-ms-box-shadow: inset 0 0px 20px 1px #fff, 0px 1px 0 #ccc, 0 6px 0px #ccc, 0 8px 4px 1px #111111;
+		-o-box-shadow: inset 0 0px 20px 1px #fff, 0px 1px 0 #ccc, 0 6px 0px #ccc, 0 8px 4px 1px #111111;
+		box-shadow: inset 0 0px 20px 1px #fff, 0px 1px 0 #ccc, 0 6px 0px #ccc, 0 8px 4px 1px #111111;
+		cursor: pointer; 
+	}
+	a.button:active, a.button.active {
+		-webkit-box-shadow: inset 0 1px 10px 1px #fff, 0 1px 0 #ccc, 0 2px 0 #ccc, 0 4px 3px 0 #111111;
+		-moz-box-shadow: inset 0 1px 10px 1px #fff, 0 1px 0 #ccc, 0 2px 0 #ccc, 0 4px 3px 0 #111111;
+		-ms-box-shadow: inset 0 1px 10px 1px #fff, 0 1px 0 #ccc, 0 2px 0 #ccc, 0 4px 3px 0 #111111;
+		-o-box-shadow: inset 0 1px 10px 1px #fff, 0 1px 0 #ccc, 0 2px 0 #ccc, 0 4px 3px 0 #111111;
+		box-shadow: inset 0 1px 10px 1px #fff, 0 1px 0 #ccc, 0 2px 0 #ccc, 0 4px 3px 0 #111111;
+		margin-top: 5px; 
+		margin-bottom: 10px;
+	}
+
+	a.small-button, input[type='submit'] {
+		width: 100px;
+		font-size: 14px;
+		background: #4162a8;
+		padding: 6px 0 8px 0;
+		color: white;
+		text-shadow: 0px -1px 1px #1e2d4d;
+		border-top: 1px solid #38538c;
+		border-right: 1px solid #1f2d4d;
+		border-bottom: 1px solid #151e33;
+		border-left: 1px solid #1f2d4d;
+		-webkit-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+		-moz-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+		-ms-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+		-o-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+		box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 4px 0px #1f3053, 0 6px 3px 1px #111111;
+	}
+	a.small-button:hover, input[type='submit']:hover {
+		-webkit-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+		-moz-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+		-ms-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+		-o-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+		box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 4px 0px #1f3053, 0 6px 3px 1px #111111;
+		cursor: pointer; 
+	}
+	a.small-button:active, input[type='submit']:active {
+		-webkit-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+		-moz-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+		-ms-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+		-o-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+		box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+		margin-top: 5px; margin-bottom: 10px 
+	}
+
+
+/*****************************
+	Progress Bars
+ *****************************/
+
+	.progress_wrapper progress {
+		width: 150px;
+		height: 18px;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		border: none;
+		padding: 1px;
+		border-radius: 4px;
+		background-image: none;
+		box-shadow:inset 0px 2px 0px rgba(0,0,0,.3), 0px -1px 1px rgba(255,255,255,0.13), 0px 1px 2px rgba(0,0,0,0.5);
+		overflow: hidden;
+		background-color: rgba(0,0,0,0.5);
+	}
+
+	.progress_wrapper h5 {
+		display: block;
+		color:white;
+		margin-bottom:0px;
+	}
+
+	.progress_wrapper progress::-moz-progress-bar,
+	.progress_wrapper progress::-webkit-progress-bar {
+		background-color: rgba(0,0,0,.1);
+	}
+	.progress_wrapper progress::-moz-progress-bar:after,
+	.progress_wrapper progress::-webkit-progress-value:after {
+		content: '';
+		width: 6px;
+		height: 6px;
+		display: block;
+		position: absolute;
+		border-radius: 50%;
+		right: 5px;
+		top: 3px;
+		background-color: #4079ad;
+		box-shadow: 0px 1px 1px rgba(255,255,255,0.37), inset 0px 1px 1px rgba(0,0,0,0.54);
+	}
+
+	.progress_wrapper progress::-moz-progress-bar {
+		box-shadow: inset 1px 1px 1px rgba(255,255,255,0.5);
+		border-radius: 4px;
+	}
+	.progress_wrapper progress::-webkit-progress-value {
+		box-shadow: inset 1px 1px 1px rgba(255,255,255,0.5);
+		border-radius: 4px;
+	}
+
+	.progress_wrapper progress.yellow::-moz-progress-bar {
+		background: -moz-linear-gradient(top, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.2) 100%), -moz-linear-gradient(left, #ffcb65 0%, #cb9832 100%);
+	}
+	.progress_wrapper progress.yellow::-webkit-progress-value {
+		background: -webkit-linear-gradient(top, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.2) 100%), -webkit-linear-gradient(left, #ffcb65 0%, #cb9832 100%);
+	}
+
+	.progress_wrapper progress.red::-moz-progress-bar {
+		background: -moz-linear-gradient(top, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.2) 100%), -moz-linear-gradient(left, #cc3332 0%, #993333 100%);
+	}
+
+	.progress_wrapper progress.red::-webkit-progress-value {
+	 	background: -webkit-linear-gradient(top, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.2) 100%), -webkit-linear-gradient(left, #cc3332 0%, #993333 100%);
+	}
+
+	.progress_wrapper progress.green::-moz-progress-bar {
+		background: -moz-linear-gradient(top, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.2) 100%), -moz-linear-gradient(left, #65cb32 0%, #329832 100%);
+	}
+
+	.progress_wrapper progress.green::-webkit-progress-value {
+		background: -webkit-linear-gradient(top, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.2) 100%), -webkit-linear-gradient(left, #65cb32 0%, #329832 100%);
+	}
+
+
+
+
+/* Form styles
+================================================== */
+
+input,
+textarea {
+	font-size: 14px;
+	font-weight: normal;
+	padding: 6px 3px;
+	border: solid 1px rgb(204,204,204);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	outline: 0;
+	width:98%;
+	background: rgb(255,255,255);
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+}
+
+input:focus,
+input:focus,
+input:focus,
+textarea:focus {
+  -webkit-box-shadow: 0px 0px 4px #5dbd00;
+  -moz-box-shadow: 0px 0px 4px #5dbd00;
+  box-shadow: 0px 0px 4px #5dbd00;
+  border-color: #5dbd00;
+
+ }
+
+form .label {
+	float: left;
+	padding-top: 5px;
+}
+
+form label {
+	font-weight: bold;
+	font-size:16px;
+	margin-bottom: 5px;
+	display: block;
+}
+
+form .input {
+	float: left;
+	padding-bottom: 10px;
+	position: relative;
+}
+
+form input {
+	margin-bottom:15px;
+}
+
+form .elastic, form textarea {
+	min-height:100px;
+}
+
+/*
+form fieldset {
+	border: 1px solid #cbcaca;
+	margin-bottom: 10px;
+	border-radius:3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	padding: 1em 1em 1em 1.5em;
+}
+
+form fieldset {
+	padding-top: 20px;
+	border-radius: 5px;
+	border-top: 1px solid rgba(2, 2, 2, 0.28);
+	border-right: 1px solid rgba(2, 2, 2, 0.28);
+	border-left: 1px solid rgba(2, 2, 2, 0.28);
+	border-bottom: 1px solid rgba(250, 250, 250, 0.27);
+	background-color: rgba(0,0,0,.1);
+	-webkit-box-shadow: inset 0px -1px 10px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0px -1px 1px rgba(0,0,0,0.5);
+	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.5);
+}
+
+form fieldset:hover {
+}
+*/
+
+.limiterBox {
+	border: 1px solid #cbcaca;
+	background-image: url(../images/tooltip.jpg);
+	background-repeat: repeat;
+	padding: 6px 9px;
+	font-size: 12px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	color:#fff;
+	margin-top: 2px;
+}
+form .label .hint {
+	line-height: 16px;
+	float: left;
+	width: 100%;
+}
+
+form .multiple {
+	width:98%;
+	min-height: 150px;
+	border: 1px solid #cbcaca;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	outline: 0;
+	float: left;
+	background: rgb(255,255,255);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1)));
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 );
+
+}
+
+/*Checkbox and radio */
+.checkbox, .radio {
+	width: 19px;
+	height: 25px;
+	padding: 0 5px 0 0;
+	background: url(../images/checkbox.png) no-repeat;
+	display: block;
+	clear: left;
+	float: left;
+}
+.radio {
+	background: url(../images/radio.png) no-repeat;
+}
+.selectStyle {
+	position: absolute;
+	width: 158px; /* With the padding included, the width is 190 pixels: the actual width of the image. */
+	height: 21px;
+	padding: 0 24px 0 8px;
+	color: #fff;
+	font: 12px/21px arial,sans-serif;
+	background: url(../images/select.png) no-repeat;
+	overflow: hidden;
+}
+.checkbox input, .radio input {
+	display: none!important;
+}
+.checkbox input.show,.radio input.show {
+	display: inline;
+}
+.selected {
+	background-position: 0 -52px;
+}

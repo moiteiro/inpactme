@@ -11,7 +11,7 @@ if(!defined("MODEL_PATH"))
 
 // Object Name
 // ************
-$object = "player";
+$object = "club";
 $objects = get_filename(__FILE__);
 
 
@@ -28,6 +28,7 @@ $child_node = $object;
 
 // inclua todas as classes necessárias
 require_once(MODEL_PATH.DS."{$object}.php");
+require_once(MODEL_PATH.DS."player.php");
 
 switch($_SERVER['REQUEST_METHOD']){
 	
@@ -36,58 +37,45 @@ switch($_SERVER['REQUEST_METHOD']){
 		$output = array();
 
 		if (isset($params['id'])) {
-			$player = $Class::find_by_id($params['id']);
-			$output = $player->attributes();
-			unset($output['first_name']);
-			unset($output['last_name']);
-			unset($output['position']);
-			unset($output['shirt_number']);
 
+			$club = $Class::find_by_id($params['id']);
+			$output = $club->attributes();
 
-			$output['name'] = array('first' => $player->first_name, "last" => $player->last_name);
-			$output['shirtNumber'] = (int)$player->shirt_number;
-			$output['fieldPosition'] = (int)$player->position;
+			unset($output['foundation_date']);
 
-			$output['characteristics'] = array("acceleration" => $player->acceleration,
-											   "stamina" => $player->stamina,
-											   "aggression" => $player->aggression,
-											   "marking" => $player->marking,
-											   "balance" => $player->balance);
+			$output['captain'] = 0;
+			$output['firstTeam'] = array();
+			$output['reserveTeam'] = array();
 
-			if ($output['gender'] == 1) {
-				$output['gender'] = "Male";
-			} else if ($output['gender'] == 2) {
-				$output['gender'] = "Female";
-			} else {
-				$output['gender'] = "Other";
-			}
+			$output['overall'] = $Class::get_overall($club->id);
 
-			if ($output['fieldPosition'] == 1) {
-				$output['fieldPosition'] = "GoalKeeper";
-			} else if ($output['fieldPosition'] == 2) {
-				$output['fieldPosition'] = "Defender";
-			} else if ($output['fieldPosition'] == 3) {
-				$output['fieldPosition'] = "Midfielder";
-			} else if ($output['fieldPosition'] == 4) {
-				$output['fieldPosition'] = "Attacker";
-			} else {
-				$output['fieldPosition'] = "";
+			$output['foundationDate'] = date_format_DMY($club->foundation_date);
+
+			$players = $Class::get_players($params['id']);
+			
+			foreach($players as $player) {
+				if ($player['situation'] == Player::first_team) {
+					$output['firstTeam'][] = $player['player_id'];
+				} else if ($player['situation'] == Player::reserve_team) {
+					$output['reserveTeam'][] = $player['player_id'];
+				}
+
+				if ($player['captain'] == Player::captain) {
+					$output['captain'] = $player['player_id'];
+				}
 			}
 
 		} else {
 
-			$players = $Class::find_all();
-			
-			foreach($players as $player) {
+			$clubs = $Class::find_all();
+			foreach($clubs as $club) {
 
-				$overall = $player->acceleration + $player->stamina + $player->aggression + $player->marking + $player->balance;
-				$club = $Class::get_club_name($player->id);
+				$overall = $Class::get_overall($club->id);
 
-				$output[] = array("id" => $player->id,
-								  "name" => array("first" => $player->first_name, "last" => $player->last_name ),
-								  "age" => $player->age,
-								  "overall" => $overall,
-								  "club" => $club);
+				$output[] = array("id" => $club->id,
+								  "name" => $club->name,
+								  "foundationDate" => date_format_DMY($club->foundation_date),
+								  "overall" => $overall);
 			}
 		}
 
@@ -98,6 +86,7 @@ switch($_SERVER['REQUEST_METHOD']){
 	
 	case "POST":
 
+
 		$output = array();
 
 		$$object = new $Class();
@@ -106,6 +95,19 @@ switch($_SERVER['REQUEST_METHOD']){
 		foreach($db_fields as $attribute=>$type)
 			if(isset($obj->$attribute))
 				$params[$attribute] = $obj->$attribute;
+
+		/********************
+			Tratando Datas
+		*********************/
+		$params['foundation_date'] = date_format_YMD($params['foundation_date']);
+
+		if (!isset($params['first_team']) || !is_array($params['first_team'])) {
+			$params['first_team'] = array();
+		}
+
+		if (!isset($params['reserve_team']) || !is_array($params['reserve_team'])) {
+			$params['reserve_team'] = array();
+		}
 
 		// campos da tabela que não serão avalidados
 		$not_evaluate = array("id");
@@ -126,9 +128,10 @@ switch($_SERVER['REQUEST_METHOD']){
 		}
 		
 		$$object->set_attributes($params);
-
 		
 		$result = $$object->create();
+
+		$Class::set_players($params['first_team'], $params['reserve_team'], $params['captain'], $$object->id);
 
 		if ($result) {
 			$output['bResult'] = true;
@@ -149,11 +152,21 @@ switch($_SERVER['REQUEST_METHOD']){
 		$input = file_get_contents("php://input");
 		$input = explode('&', $input);
 
+		$first_team = array();
+		$reserve_team = array();
+
 		foreach($input as $entry) {
 			$aux = explode('=', $entry);
 			$params[$aux[0]] = urldecode($aux[1]);
-		}
 
+			if (strpos($aux[0], 'first') !== 0) {
+				echo $aux[0];
+				echo "<br>";
+			}
+		}
+		
+		print_r($params);
+		exit();
 		$output = array();
 
 		$$object = $Class::find_by_id($params['id']);
@@ -164,12 +177,19 @@ switch($_SERVER['REQUEST_METHOD']){
 			if(isset($obj->$attribute))
 				$params[$attribute] = $obj->$attribute;
 
+
+		/********************
+			Tratando Datas
+		*********************/
+		$params['foundation_date'] = date_format_YMD($params['foundation_date']);
+		
+
 		// campos da tabela que não serão avalidados
 		$not_evaluate = array();
 		$validation->avoid_fields($not_evaluate);
 		
 		// validando os dados submetidos
-		#$validation->validate_fields($params, $db_fields);
+		$validation->validate_fields($params, $db_fields);
 		
 		// ver o resultado das validações
 		#echo $validation->get_validation_result(); exit();
@@ -183,6 +203,7 @@ switch($_SERVER['REQUEST_METHOD']){
 		}
 		
 		$$object->set_attributes($params);
+		echo $$object;
 		
 		$result = $$object->update();
 

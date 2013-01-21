@@ -1,0 +1,29 @@
+<li class='clearfix'>
+
+	<div class='player-entry'>
+		<div class='player-image'>
+			<img src="design/images/avatar_small.png" width='50' alt="">
+		</div>
+		<div class='player-description'>
+			<a href="#players/<%= id %>">
+				<span class='upper'><%= name.last %></span>, <%= name.first %>
+			</a>
+
+			<div class="clear"></div>
+
+			<div class="progress_wrapper red">
+				<progress max='50' value='<%= overall %>' class='<%= progressColor %>'></progress>
+			</div>
+		</div>
+	</div>
+
+	<div class="player-club">
+		<p><%= club %></p>
+	</div>
+
+	<span class='action-buttons'>
+		<a href="#players/<%= id %>/edit" class='small-button'>
+			Edit
+		</a>
+	</span>
+</li>

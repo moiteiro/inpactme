@@ -1,0 +1,38 @@
+<li class='clearfix'>
+		<div class='match-entry clearfix'>
+			<div class="club-entry">
+				<div class='club-name left'>
+					<%= host.name %>
+				</div>
+				<br/>
+				<div class='score left'>
+					<%= host.score %>
+				</div>
+			</div>
+
+			<div id='bigX'>
+				X
+			</div>			
+
+			<div class="club-entry">
+				<div class='club-name right'>
+					<%= guest.name %>
+				</div>
+				<br />
+				<div class='score right'>
+					<%= guest.score %>
+				</div>
+			</div>
+
+			<div class="clear"></div>
+			<div class='match-status'>
+				<%= status %>
+			</div>
+		</div>
+
+	<span class='action-buttons'>
+		<a href="#matches/<%= id %>/edit" class='small-button'>
+			Set Result
+		</a>
+	</span>
+</li>

@@ -11,7 +11,7 @@ if(!defined("MODEL_PATH"))
 
 // Object Name
 // ************
-$object = "player";
+$object = "match";
 $objects = get_filename(__FILE__);
 
 
@@ -28,6 +28,7 @@ $child_node = $object;
 
 // inclua todas as classes necessárias
 require_once(MODEL_PATH.DS."{$object}.php");
+require_once(MODEL_PATH.DS."club.php");
 
 switch($_SERVER['REQUEST_METHOD']){
 	
@@ -36,58 +37,50 @@ switch($_SERVER['REQUEST_METHOD']){
 		$output = array();
 
 		if (isset($params['id'])) {
-			$player = $Class::find_by_id($params['id']);
-			$output = $player->attributes();
-			unset($output['first_name']);
-			unset($output['last_name']);
-			unset($output['position']);
-			unset($output['shirt_number']);
+			$match = $Class::find_by_id($params['id']);
+			$output = $match->attributes();
+			unset($output['host_name']);
+			unset($output['host_id']);
+			unset($output['guest_name']);
+			unset($output['guest_id']);
 
+			$host = Club::find_by_id($match->host_id);
+			$guest = Club::find_by_id($match->guest_id);
 
-			$output['name'] = array('first' => $player->first_name, "last" => $player->last_name);
-			$output['shirtNumber'] = (int)$player->shirt_number;
-			$output['fieldPosition'] = (int)$player->position;
-
-			$output['characteristics'] = array("acceleration" => $player->acceleration,
-											   "stamina" => $player->stamina,
-											   "aggression" => $player->aggression,
-											   "marking" => $player->marking,
-											   "balance" => $player->balance);
-
-			if ($output['gender'] == 1) {
-				$output['gender'] = "Male";
-			} else if ($output['gender'] == 2) {
-				$output['gender'] = "Female";
-			} else {
-				$output['gender'] = "Other";
-			}
-
-			if ($output['fieldPosition'] == 1) {
-				$output['fieldPosition'] = "GoalKeeper";
-			} else if ($output['fieldPosition'] == 2) {
-				$output['fieldPosition'] = "Defender";
-			} else if ($output['fieldPosition'] == 3) {
-				$output['fieldPosition'] = "Midfielder";
-			} else if ($output['fieldPosition'] == 4) {
-				$output['fieldPosition'] = "Attacker";
-			} else {
-				$output['fieldPosition'] = "";
-			}
+			$output["host"] = array("id" => $host->id, "name" => $host->name, "score" => $match->host_score);
+		  	$output["guest"] = array("id" => $guest->id, "name" => $guest->name, "score" => $match->guest_score);
 
 		} else {
 
-			$players = $Class::find_all();
-			
-			foreach($players as $player) {
+			$today = date('Y-m-d');
+			$matches = $Class::find_all();
 
-				$overall = $player->acceleration + $player->stamina + $player->aggression + $player->marking + $player->balance;
-				$club = $Class::get_club_name($player->id);
+			foreach($matches as $match) {
 
-				$output[] = array("id" => $player->id,
-								  "name" => array("first" => $player->first_name, "last" => $player->last_name ),
-								  "age" => $player->age,
-								  "overall" => $overall,
-								  "club" => $club);
+				$host = Club::find_by_id($match->host_id);
+				$guest = Club::find_by_id($match->guest_id);
+
+				if (!$host || !$guest) {
+					continue;
+				}
+
+				if ($today <= $match->date) {
+					$status = "Scheduled";
+				} else if ($match->host_score == "" && $match->guest_score == "") {
+					$status = "Waiting for results";
+				} else {
+					$status = "";
+				}
+				
+
+				$output[] = array("id" => $match->id,
+								  "host" => array("id" => $host->id, 
+								  					"name" => $host->name, 
+								  					"score" => $match->host_score),
+								  "guest" => array("id" => $guest->id, "name" => $guest->name, "score" => $match->guest_score),
+								  "date" => date_format_DMY($match->date),
+								  "location" => $match->location,
+								  "status" => $status);
 			}
 		}
 
@@ -107,12 +100,18 @@ switch($_SERVER['REQUEST_METHOD']){
 			if(isset($obj->$attribute))
 				$params[$attribute] = $obj->$attribute;
 
+		/********************
+			Tratando Datas
+		*********************/
+		
+		$params['date'] = date_format_YMD($params['date']);
+
 		// campos da tabela que não serão avalidados
 		$not_evaluate = array("id");
 		$validation->avoid_fields($not_evaluate);
 		
 		// validando os dados submetidos
-		$validation->validate_fields($params, $db_fields);
+		#$validation->validate_fields($params, $db_fields);
 		
 		// ver o resultado das validações
 		#echo $validation->get_validation_result(); exit();
@@ -127,7 +126,6 @@ switch($_SERVER['REQUEST_METHOD']){
 		
 		$$object->set_attributes($params);
 
-		
 		$result = $$object->create();
 
 		if ($result) {
@@ -153,6 +151,7 @@ switch($_SERVER['REQUEST_METHOD']){
 			$aux = explode('=', $entry);
 			$params[$aux[0]] = urldecode($aux[1]);
 		}
+		
 
 		$output = array();
 
@@ -164,6 +163,11 @@ switch($_SERVER['REQUEST_METHOD']){
 			if(isset($obj->$attribute))
 				$params[$attribute] = $obj->$attribute;
 
+
+		/********************
+			Tratando Datas
+		*********************/
+
 		// campos da tabela que não serão avalidados
 		$not_evaluate = array();
 		$validation->avoid_fields($not_evaluate);
@@ -174,6 +178,7 @@ switch($_SERVER['REQUEST_METHOD']){
 		// ver o resultado das validações
 		#echo $validation->get_validation_result(); exit();
 		
+		/*
 		if($validation->get_errors() != 0) {
 
 			$output = json_encode($output);
@@ -181,6 +186,7 @@ switch($_SERVER['REQUEST_METHOD']){
 			exit();
 
 		}
+		*/
 		
 		$$object->set_attributes($params);
 		

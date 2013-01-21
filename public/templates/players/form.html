@@ -1,0 +1,94 @@
+<div class="glass-box sixteen columns">
+	<h1>Create Player</h1>
+	<form>
+		<input type="hidden" name='id' value='<%= id %>' />
+		<fieldset>
+			<div class="four columns">
+				<label>First Name</label>
+				<input type="text" name="first_name" value='<%= name.first %>' />
+			</div>
+			
+			<div class="four columns">
+				<label>Last Name</label>
+				<input type="text" name="last_name" value='<%= name.last %>' />
+			</div>
+
+			<div class="clear"></div>
+			<div class="row"></div>
+
+			<div class="two columns">
+				<label>Age</label>
+				<input type="text" name="age" value='<%= age %>' />
+			</div>
+
+			<div class="clear"></div>
+			<div class="row"></div>
+
+			<div class="three columns">
+				<label>Gender</label>
+				<select name="gender" style='width:100%' data-placeholder='Select your gender' id="">
+					<option value='0'></option>
+					<option value="1">Male</option>
+					<option value="2">Female</option>
+					<option value="3">Other</option>
+				</select>
+			</div>
+		</fieldset>	
+
+		<div class="divider"></div>
+
+		<fieldset>
+			<div class="four columns">
+				<label>Position</label>
+				<select name="position" style='width:100%' data-placeholder='Select your position' id="">
+					<option value="0"></option>
+					<option value="1">GoalKeeper</option>
+					<option value="2">Defender</option>
+					<option value="3">Midfielder</option>
+					<option value="4">Attacker</option>
+				</select>
+			</div>
+
+			<div class="clear"></div>
+			<div class="row"></div>
+
+			<div class='two columns'>
+				<label>Shirt Number</label>
+				<input type="text" name="shirt_number" value='<%= shirtNumber %>' />
+			</div>
+		</fieldset>
+
+		<div class="divider"></div>
+
+		<fieldset>
+			<div class="two columns">
+				<label>Accelaration</label>
+				<input type="text" name="acceleration" value='<%= characteristics.acceleration %>' />
+			</div>
+
+			<div class="two columns">
+				<label>Stamina</label>
+				<input type="text" name="stamina" value='<%= characteristics.stamina %>' />
+			</div>
+
+			<div class="two columns">
+				<label>Aggression</label>
+				<input type="text" name="aggression" value='<%= characteristics.aggression %>' />
+			</div>
+
+			<div class="two columns">
+				<label>Marking</label>
+				<input type="text" name="marking" value='<%= characteristics.marking %>' />
+			</div>
+
+			<div class="two columns">
+				<label>Balance</label>
+				<input type="text" name="balance" value='<%= characteristics.balance %>' />
+			</div>
+		</fieldset>
+
+		<p>
+			<input type="submit" value="Add Player" />
+		</p>
+	</form>
+</div>

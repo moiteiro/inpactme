@@ -3,6 +3,7 @@
 ### Caracteristicas
 
 Sistema gerenciador de campeonatos para a Startup Championship.
+
 http://sandbox.brunomoiteiro.com
 
 Tecnologias:
@@ -20,7 +21,7 @@ Frameworks:
 - Backbone (client Side)
 - Framework pessoal (server side) https://github.com/moiteiro/Framework
 
-A ideia inicial da aplicação seria aplicar javascript no server side tambem mas tive alguns problemas para dar o deploy no heroku e por isso tive que optar por outra solução.
+A ideia inicial do projeto seria aplicar javascript no server side mas tive alguns problemas para dar o deploy no heroku, por isso optei por outra solução.
 
 A aplicação não garante o funcionamento correto em browser que não possui suporte a html5.
 
